@@ -8,8 +8,6 @@ class MyCrawler(scrapy.Spider):
     start_urls                 = ['http://books.toscrape.com/'] 
     dumpFile                   = open ('JSONDumpForBooks.txt','w')
     dumpFileForEackBook        = open ('JSONDumpForEachBook.txt','w')
-    Bookname                   = ''
-    EachBookHyperLink          = {}
     funcCounter                = 0
     def parse(self, response):
 
@@ -28,7 +26,7 @@ class MyCrawler(scrapy.Spider):
         price_Of_Book    = response.xpath("//article[@class='product_pod']/div[@class='product_price']/p[@class='price_color']/text()").extract()
         InStock          = response.xpath("//article[@class='product_pod']/div[@class='product_price']//p[@class='instock availability']/text()").extract()
  
-        ResultMap          = dict()
+        ResultMap        = dict()
 
        ##The above can be extracted in a single query inside a list in single pass as below
 
